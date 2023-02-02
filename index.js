@@ -1,5 +1,24 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  //#region Quadratic
+  // for(let i = 0; i < array.length; i++) {
+  //   let compliment = target - array[i];
+  //   for(let j = i + 1; j < array.length; j++){
+  //     if(compliment === array[j]) {
+  //       return true
+  //     }
+  //   }
+  // };
+  // return false;
+  //#endregion
+  //#region - Linear -- Best Case -
+  let compObj = {};
+  for(const num of array) {
+    let compliment = target - num;
+    if(compObj[compliment]) return true;
+    compObj[num] = true;
+  }
+  return false
+  //#endregion
 }
 
 /* 
@@ -8,6 +27,7 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  iterate over the array, for every index number, find the complementary number.
 */
 
 /*
